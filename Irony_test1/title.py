@@ -16,25 +16,28 @@ def main():
     a = s + "/.."
     os.chdir(a)
     print(os.getcwd())
-    icon = pygame.image.load("img/img_icon.png")
+    icon = pygame.image.load("img/character/img_icon.png")
     pygame.display.set_icon(icon)
-    button = pygame.Rect(180, 120, 120, 60)  # creates a rect object
+    button = pygame.Rect(300, 150, 120, 60)  # creates a rect object
 
-    #STEP1.フォントの用意  
+    #フォントの用意  
     font = pygame.font.SysFont(None, 50)
     
-    #STEP2.テキストの設定
+    #テキストの設定
     text1 = font.render("start", True, (0,0,0))
     
+    #背景
+    background = pygame.image.load("img/background/title1.png")
+
     
     running = True
     #メインループ
     while running:
-        screen.fill((0,0,0))  #画面を黒で塗りつぶす
+        screen.blit(background, (0, 0))
         
         pygame.draw.rect(screen, (255, 255, 255), button)
 
-        screen.blit(text1, (200, 135))
+        screen.blit(text1, (315, 165))
 
         pygame.display.update() #描画処理を実行
         for event in pygame.event.get():
